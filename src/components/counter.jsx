@@ -1,7 +1,7 @@
 import React from "react";
 
 const Couneter = (props) => {
-  const {value}=props
+  const { value}=props
 
   const formatValue = () => {
     return value === 0 ? "empty" : value;
@@ -18,10 +18,10 @@ const Couneter = (props) => {
     <div>
       <span>{props.name}</span>
       <span className={getBageClasses()}>{formatValue()}</span>
-      <button className="btn btn-primary btn-sm m-2" onClick={()=>props.onIncrement(props.value)}>
+      <button className="btn btn-primary btn-sm m-2" onClick={()=>props.onIncrement(props.id)}>
         +
       </button>
-      <button className="btn btn-primary btn-sm m-2" onClick={()=>props.onDicrement(props.value)}>
+      <button className="btn btn-primary btn-sm m-2" onClick={()=>props.onDicrement(props.id)}>
         -
       </button>
       <button className="btn btn-danger btn-sm m-2" onClick={()=>props.onDelete(props.id)}>Delete</button>
