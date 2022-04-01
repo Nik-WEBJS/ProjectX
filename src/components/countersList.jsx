@@ -24,24 +24,21 @@ const CountersList = () => {
 
 
   const handleIncrement = (id) => {
-    const valueIncrement = counters.map(c => c.id === id ? c.value+1 : c.value+0);
+    const valueIncrement = counters.map(c => c.id === id ? {...c, value: c.value +1} : {...c});
 
-    console.log(valueIncrement)
-    //setCounters(valueIncrement)
+    setCounters(valueIncrement)
   };
 
-  // const handleDicrement = (id) => {  
-  //   const ValueDicrement = counters.filter(c => c.id === id);
-  //   const NewValueDicrement = ValueDicrement.value + 1
-  //   console.log(NewValueDicrement)
-  //   // const newValueDicrement = ValueDicrement.value - 1
-  //   //  
-  // };
+  const handleDicrement = (id) => {
+    const valueDicrement = counters.map(c => c.id === id ? {...c, value: c.value - 1} : {...c});
+
+    setCounters(valueDicrement)
+  };
 
   return (
     <>
       {counters.map((count) => (
-        <Couneter key={count.id} {...count} onDelete={handleDelete} onIncrement={handleIncrement} /*onDicrement={handleDicrement}*//>
+        <Couneter key={count.id} {...count} onDelete={handleDelete} onIncrement={handleIncrement} onDicrement={handleDicrement}/>
       ))}
       <button className="btn btn-primary btm-sm m-2" onClick={handleReset}>
         Сброс
